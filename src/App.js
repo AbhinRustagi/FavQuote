@@ -1,3 +1,4 @@
+import React from "react";
 import "./styles.css";
 import Quote from "./components/quote";
 import Header from "./components/header";
@@ -5,7 +6,6 @@ import Searchbar from "./components/searchbar";
 import { useSearch } from "./lib/useSearch";
 import Lottie from "react-lottie";
 import loadingAnimation from "./assets/93354-loading.json";
-import Modal from "./components/modal";
 
 export default function App() {
   const { query, handleChange, results, loading, retreive } = useSearch();
@@ -18,6 +18,13 @@ export default function App() {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  // Avoid re-render on Refreshing Data
+  const renderQuotes = React.useCallback(() => {
+    return results.map(({ book, quote, id }) => (
+      <Quote book={book} quote={quote} key={id} />
+    ));
+  }, [results]);
 
   return (
     <>
@@ -34,9 +41,7 @@ export default function App() {
               <Lottie options={defaultOptions} />
             </div>
           ) : (
-            results.map(({ book, quote, id }) => (
-              <Quote book={book} quote={quote} key={id} />
-            ))
+            renderQuotes()
           )}
         </div>
       </main>

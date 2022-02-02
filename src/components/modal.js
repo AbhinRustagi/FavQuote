@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./modal.module.css";
 import Modal from "react-modal";
 import { signIn, addToList } from "../lib/firebase";
+import { IoIosAdd } from "react-icons/io";
 
 Modal.setAppElement("#root");
 
@@ -58,7 +59,8 @@ export default function AuthModal() {
 
   return (
     <div>
-      <button onClick={openModal} className={styles.addBtn}>
+      <button onClick={openModal}>
+        <IoIosAdd />
         Add More Quotes
       </button>
       <Modal
@@ -90,9 +92,7 @@ export default function AuthModal() {
               value={input.password}
             />
             <br />
-            <button onClick={handleSubmit} className={styles.logInBtn}>
-              Log In
-            </button>
+            <button onClick={handleSubmit}>Log In</button>
           </form>
         )}
         {isAuth && (
@@ -124,9 +124,7 @@ export default function AuthModal() {
               value={input.quote}
             />
             <br />
-            <button onClick={handleAddition} className={styles.logInBtn}>
-              Add to Database
-            </button>
+            <button onClick={handleAddition}>Add to Database</button>
           </div>
         )}
       </Modal>

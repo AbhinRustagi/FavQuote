@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./searchbar.module.css";
+import { IoMdRefresh } from "react-icons/io";
 
 export default function Searchbar({ handleChange, query, refreshData }) {
   return (
@@ -11,7 +12,8 @@ export default function Searchbar({ handleChange, query, refreshData }) {
         placeholder="Search by Quote or Book Name"
         name="query"
       />
-      <button onClick={refreshData} className={styles.refreshBtn}>
+      <button onClick={refreshData}>
+        <IoMdRefresh />
         Refresh Data
       </button>
     </div>

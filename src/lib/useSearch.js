@@ -30,10 +30,12 @@ export const useSearch = () => {
     });
   };
 
-  React.useEffect(() => {
-    // Get Data
-    retreive();
-  }, []);
+  const handleChange = React.useCallback(
+    ({ target: { value } }) => {
+      setQuery(value);
+    },
+    [query]
+  );
 
   React.useEffect(() => {
     if (query === "") {
@@ -45,9 +47,10 @@ export const useSearch = () => {
     setResults([...res.map(({ item }) => item)]);
   }, [query]);
 
-  const handleChange = ({ target: { value } }) => {
-    setQuery(value);
-  };
+  React.useEffect(() => {
+    // Get Data
+    retreive();
+  }, []);
 
   return { handleChange, query, results, loading, retreive };
 };
