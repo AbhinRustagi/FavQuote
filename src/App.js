@@ -5,9 +5,10 @@ import Searchbar from "./components/searchbar";
 import { useSearch } from "./lib/useSearch";
 import Lottie from "react-lottie";
 import loadingAnimation from "./assets/93354-loading.json";
+import Modal from "./components/modal";
 
 export default function App() {
-  const { query, handleChange, results, loading } = useSearch();
+  const { query, handleChange, results, loading, retreive } = useSearch();
 
   const defaultOptions = {
     loop: true,
@@ -22,7 +23,11 @@ export default function App() {
     <>
       <Header />
       <main>
-        <Searchbar {...query} handleChange={handleChange} />
+        <Searchbar
+          refreshData={retreive}
+          {...query}
+          handleChange={handleChange}
+        />
         <div className="card-container">
           {loading ? (
             <div className="loading">

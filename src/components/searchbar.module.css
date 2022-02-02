@@ -1,5 +1,7 @@
 .container {
   margin-bottom: 25px;
+  display: flex;
+  align-items: center;
 }
 
 .input {
@@ -11,4 +13,17 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
   margin-right: 10px;
   background: transparent;
+  margin: 10px 10px 10px 0;
+}
+
+.refreshBtn {
+  padding: 7px 15px;
+  font-family: inherit;
+  font-size: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: #313552;
+  border-radius: 4px;
+  color: #fff;
+  height: max-content;
+  cursor: pointer;
 }

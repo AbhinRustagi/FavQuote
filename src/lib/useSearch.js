@@ -15,17 +15,24 @@ export const useSearch = () => {
   const [results, setResults] = React.useState(list);
   const fuse = new Fuse(list, options);
 
-  React.useEffect(() => {
-    // Get Data
+  const retreive = () => {
     getItems().then(({ ok, data, message, code }) => {
+      setLoading(true);
+
       if (ok) {
         setList(data);
         setResults(data);
         setLoading(false);
       } else {
         alert("Error fetching data.", message, code);
+        setLoading(false);
       }
     });
+  };
+
+  React.useEffect(() => {
+    // Get Data
+    retreive();
   }, []);
 
   React.useEffect(() => {
@@ -38,9 +45,9 @@ export const useSearch = () => {
     setResults([...res.map(({ item }) => item)]);
   }, [query]);
 
-  const handleChange = (e) => {
-    setQuery(e.target.value);
+  const handleChange = ({ target: { value } }) => {
+    setQuery(value);
   };
 
-  return { handleChange, query, results, loading };
+  return { handleChange, query, results, loading, retreive };
 };
