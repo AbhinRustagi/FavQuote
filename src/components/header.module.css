@@ -1,0 +1,19 @@
+.header {
+  background-color: #7c99ac;
+  padding: 15px 0;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.container {
+  max-width: 950px;
+  padding: 0 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 500;
+}

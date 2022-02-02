@@ -1,0 +1,12 @@
+.container {
+  margin-bottom: 25px;
+}
+
+.input {
+  padding: 7px 12px;
+  font-family: inherit;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin-right: 10px;
+  background: transparent;
+}
