@@ -3,34 +3,36 @@ import Quote from "./components/quote";
 import Header from "./components/header";
 import Searchbar from "./components/searchbar";
 import { useSearch } from "./lib/useSearch";
+import Lottie from "react-lottie";
+import loadingAnimation from "./assets/93354-loading.json";
 
 export default function App() {
-  const { quote, book, setBook, setQuote, results } = useSearch([
-    {
-      book: "The Perks of Being a Wallflower",
-      quote: "We accept the love we think we deserve."
+  const { query, handleChange, results, loading } = useSearch();
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: loadingAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
     },
-    {
-      book: "The Perks of Being a Wallflower",
-      quote: "We are infinite."
-    },
-    {
-      book: "The Perks of Being a Wallflower",
-      quote: "We are infinite."
-    }
-  ]);
+  };
+
   return (
     <>
       <Header />
       <main>
-        <Searchbar
-          bookParams={{ book, setBook }}
-          quoteParams={{ quote, setQuote }}
-        />
+        <Searchbar {...query} handleChange={handleChange} />
         <div className="card-container">
-          {results.map((item, _) => (
-            <Quote book={item?.book} quote={item?.quote} key={_} />
-          ))}
+          {loading ? (
+            <div className="loading">
+              <Lottie options={defaultOptions} />
+            </div>
+          ) : (
+            results.map(({ book, quote, id }) => (
+              <Quote book={book} quote={quote} key={id} />
+            ))
+          )}
         </div>
       </main>
       <footer>

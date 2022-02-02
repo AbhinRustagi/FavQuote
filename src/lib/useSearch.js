@@ -1,29 +1,46 @@
 import React from "react";
+import Fuse from "fuse.js";
+import { getItems } from "./firebase";
 
-export const search = (list, key, query) => {
-  return list.filter((quote) => quote[key].match(query));
+const options = {
+  includeMatches: true,
+  findAllMatches: true,
+  keys: ["book", "quote"],
 };
 
-export const useSearch = (list) => {
-  const [book, setBook] = React.useState("");
-  const [quote, setQuote] = React.useState("");
-  const [results, setResult] = React.useState([]);
+export const useSearch = () => {
+  const [query, setQuery] = React.useState("");
+  const [loading, setLoading] = React.useState(true);
+  const [list, setList] = React.useState([]);
+  const [results, setResults] = React.useState(list);
+  const fuse = new Fuse(list, options);
 
   React.useEffect(() => {
-    if (book === "") {
-      setResult([...list]);
-    } else {
-      setResult([...search(list, "book", book)]);
-    }
-  }, [book]);
+    // Get Data
+    getItems().then(({ ok, data, message, code }) => {
+      if (ok) {
+        setList(data);
+        setResults(data);
+        setLoading(false);
+      } else {
+        alert("Error fetching data.", message, code);
+      }
+    });
+  }, []);
 
   React.useEffect(() => {
-    if (book === "") {
-      setResult([...list]);
-    } else {
-      setResult([...search(list, "quote", quote)]);
+    if (query === "") {
+      setResults(list);
+      return;
     }
-  }, [quote]);
 
-  return { setBook, setQuote, book, quote, results };
+    const res = fuse.search(query);
+    setResults([...res.map(({ item }) => item)]);
+  }, [query]);
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  return { handleChange, query, results, loading };
 };

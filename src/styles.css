@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-color: seashell;
+  background-color: #fff5ee;
   color: #1f1f1f;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -37,4 +37,10 @@ footer {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.loading {
+  margin: auto;
+  width: 200px;
+  height: 200px;
 }
