@@ -1,16 +1,16 @@
 import React from "react";
-import styles from "./modal.module.css";
-import Modal from "react-modal";
-import { signIn, addToList } from "../lib/firebase";
 import { IoIosAdd } from "react-icons/io";
+import Modal from "react-modal";
+import { addToList, signIn } from "../lib/firebase";
+import styles from "./modal.module.css";
 
 Modal.setAppElement("#root");
 
 const contentStyles = {
   top: "50%",
   left: "50%",
-  right: "auto",
-  bottom: "auto",
+  width: "max-content",
+  height: "max-content",
   transform: "translate(-50%, -50%)",
 };
 
@@ -69,12 +69,12 @@ export default function AuthModal() {
         style={{ content: contentStyles }}
         contentLabel="Example Modal"
       >
-        <h2>{isAuth ? "Add new Item" : "Log In"}</h2>
+        <h2 className={styles.heading}>{isAuth ? "Add new Item" : "Log In"}</h2>
         <button className={styles.closeBtn} onClick={closeModal}>
           X
         </button>
         {!isAuth && (
-          <form>
+          <form className={styles.content}>
             <input
               className={styles.input}
               type="email"
@@ -96,7 +96,7 @@ export default function AuthModal() {
           </form>
         )}
         {isAuth && (
-          <div>
+          <div className={styles.content}>
             <input
               className={styles.input}
               type="book"
@@ -123,6 +123,13 @@ export default function AuthModal() {
               }
               value={input.quote}
             />
+            <textarea
+              name="quote"
+              id="quote"
+              cols="20"
+              className={styles.input}
+              rows="10"
+            ></textarea>
             <br />
             <button onClick={handleAddition}>Add to Database</button>
           </div>

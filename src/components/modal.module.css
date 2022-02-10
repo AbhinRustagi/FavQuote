@@ -15,3 +15,11 @@
   top: 15px;
   right: 15px;
 }
+
+.heading {
+  margin-bottom: 10px;
+}
+
+.content {
+  width: max-content;
+}
