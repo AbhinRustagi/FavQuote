@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/favquote/static/css/main.39c57547.chunk.css",
-    "main.js": "/favquote/static/js/main.60be29d1.chunk.js",
-    "main.js.map": "/favquote/static/js/main.60be29d1.chunk.js.map",
+    "main.js": "/favquote/static/js/main.6c417fd5.chunk.js",
+    "main.js.map": "/favquote/static/js/main.6c417fd5.chunk.js.map",
     "runtime-main.js": "/favquote/static/js/runtime-main.274423d9.js",
     "runtime-main.js.map": "/favquote/static/js/runtime-main.274423d9.js.map",
-    "static/js/2.c8b780fa.chunk.js": "/favquote/static/js/2.c8b780fa.chunk.js",
-    "static/js/2.c8b780fa.chunk.js.map": "/favquote/static/js/2.c8b780fa.chunk.js.map",
+    "static/js/2.10c8b53d.chunk.js": "/favquote/static/js/2.10c8b53d.chunk.js",
+    "static/js/2.10c8b53d.chunk.js.map": "/favquote/static/js/2.10c8b53d.chunk.js.map",
     "index.html": "/favquote/index.html",
     "static/css/main.39c57547.chunk.css.map": "/favquote/static/css/main.39c57547.chunk.css.map",
-    "static/js/2.c8b780fa.chunk.js.LICENSE.txt": "/favquote/static/js/2.c8b780fa.chunk.js.LICENSE.txt"
+    "static/js/2.10c8b53d.chunk.js.LICENSE.txt": "/favquote/static/js/2.10c8b53d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.274423d9.js",
-    "static/js/2.c8b780fa.chunk.js",
+    "static/js/2.10c8b53d.chunk.js",
     "static/css/main.39c57547.chunk.css",
-    "static/js/main.60be29d1.chunk.js"
+    "static/js/main.6c417fd5.chunk.js"
   ]
 }
