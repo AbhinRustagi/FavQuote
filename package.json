@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "author": "Abhin Rustagi",
   "description": "",
+  "homepage": "https://abhinrustagi.github.io/favquote/",
   "keywords": [],
   "main": "src/index.js",
+  "private": false,
   "dependencies": {
     "firebase": "9.6.5",
     "fuse.js": "^6.5.3",
@@ -19,7 +21,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build && firebase deploy --only hosting",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -29,5 +32,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "."
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
