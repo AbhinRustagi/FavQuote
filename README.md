@@ -1,6 +1,9 @@
-# favquote
+# [FavQuote](https://favquote.abhin.dev/)
 
-A random project to keep record of quotes from books I read.
+> keep record of quotes from books I read
 
-- Project Link: https://favquote.abhinrustagi.xyz/
-- Project Code: [02.22]Pier
+### Built using
+
+- React 
+- TailwindCSS
+- Firebase (Firestore + Hosting + Auth)
