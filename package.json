@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Abhin Rustagi",
   "description": "",
-  "homepage": "https://abhinrustagi.github.io/favquote/",
+  "homepage": ".",
   "keywords": [],
   "main": "src/index.js",
   "private": false,
