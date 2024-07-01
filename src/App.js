@@ -47,8 +47,7 @@ export default function App() {
       </main>
       <footer>
         <p>
-          Developed & Maintained by{" "}
-          <a href="https://www.abhinrustagi.xyz">Abhin Rustagi</a>.
+          Developed by <a href="https://www.abhin.dev">Abhin Rustagi</a>.
         </p>
       </footer>
     </>
